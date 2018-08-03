@@ -4,23 +4,29 @@ import Blockly from 'node-blockly/browser';
 
 import BlocklyDrawer, { Block, Category } from 'react-blockly-drawer';
 
-const helloWorld =  {
-    name: 'HelloWorld',
-    category: 'AGENTE',
-    block: {
+const INICIAR =  {
+    name: 'INICIAR',
+    category: 'Agente',
+    block: {      
       init: function () {
         this.jsonInit({
-          message0: 'Hello %1',
+          nextStatement: null,
+          message0: 'INICIAR %1',
           args0: [
             {
-              type: 'field_input',
-              name: 'NAME',
-              check: 'String',
+              type: "field_dropdown",
+              name: "FIELDNAME",
+              options: [
+                  [ "Caballero", "ITEM1" ],
+                  [ "Arquero", "ITEM2" ],
+                  [ "Curador", "ITEM3" ],
+                  [ "Mago", "ITEM4" ]
+            ]
             },
           ],
-          output: 'String',
+          //output: 'String',
           colour: 160,
-          tooltip: 'Says Hello',
+          tooltip: 'Crear un agente',
         });
       },
     },
@@ -31,6 +37,59 @@ const helloWorld =  {
     },
   }
 
+const MOVER =  {
+    name: 'MOVER',
+    category: 'Agente',
+    block: {      
+      init: function () {
+        this.jsonInit({
+          previousStatement: null,
+          nextStatement: null,
+          message0: 'MOVER %1',
+          args0: [
+            {
+              type: "field_dropdown",
+              name: "FIELDNAME",
+              options: [
+                  [ "Arriba", "ITEM1" ],
+                  [ "ArribaDerecha", "ITEM2" ],
+                  [ "Derecha", "ITEM3" ],
+                  [ "DerechaAbajo", "ITEM4" ],
+                  [ "Abajo", "ITEM5" ],
+                  [ "AbajoIzquierda", "ITEM6" ],
+                  [ "Izquierda", "ITEM7" ],
+                  [ "IzquierdaArriba", "ITEM8" ]
+            ]
+            },
+          ],
+          //output: 'String',
+          colour: 160,
+          tooltip: 'Movimientos del agente',
+        });
+      },
+    },
+    generator: (block) => {
+      const message = `'${block.getFieldValue('NAME')}'` || '\'\'';
+      const code = `console.log('Hello ${message}')`;
+      return [code, Blockly.JavaScript.ORDER_MEMBER];
+    },
+  }
+
+
+  const ATACAR = {
+  category: 'Agente',  
+  type: "atacar",
+  message0: "ATACAR",
+  previousStatement: null,
+  nextStatement: null,
+  colour: 160,
+  tooltip: "ATACAR",
+  helpUrl: ""
+}
+
+  
+
+
 class Bloques extends Component {
 
  
@@ -39,15 +98,15 @@ class Bloques extends Component {
     return(
 
     <BlocklyDrawer
-      tools={[helloWorld]}
+      tools={[INICIAR, MOVER, ATACAR]}
       onChange={(code, workspace) => {
         console.log(code, workspace);
       }}
       appearance={
         {
           categories: {
-            AGENTE: {
-              colour: '270'
+            Agente: {
+              colour: '160'
             },
           },
         }
