@@ -17,11 +17,9 @@ class App extends Component {
                 <div className="container">
           <div className="row">
 
-            <div className="col-4">
-              <Mundo></Mundo>
-            </div>
+         
 
-            <div className="col-4">
+            <div className="col-8">
               <Bloques></Bloques>
             </div>            
 
