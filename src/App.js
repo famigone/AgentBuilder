@@ -15,9 +15,12 @@ class App extends Component {
         <Opciones></Opciones>      
 
                 <div className="container">
+          <div className="row">  
+          <p></p>
+          </div>     
           <div className="row">
 
-         
+          
 
             <div className="col-8">
               <Bloques></Bloques>

@@ -9,8 +9,9 @@ class Codigo extends Component {
   
    render() {
      return (
-      <div className="container-fluid">
+      <div className="container	 bg-dark text-white" >
           <h4>Codigo</h4> 
+          <code></code>
       </div>
       
      );

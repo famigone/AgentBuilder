@@ -76,16 +76,29 @@ const MOVER =  {
   }
 
 
-  const ATACAR = {
-  category: 'Agente',  
-  type: "atacar",
-  message0: "ATACAR",
-  previousStatement: null,
-  nextStatement: null,
-  colour: 160,
-  tooltip: "ATACAR",
-  helpUrl: ""
-}
+  const ATACAR =  {
+    name: 'ATACAR',
+    category: 'Agente',
+    block: {      
+      init: function () {
+        this.jsonInit({
+          previousStatement: null,
+          nextStatement: null,
+          message0: 'ATACAR',
+          //output: 'String',
+          colour: 160,
+          tooltip: 'Atacar',
+        });
+      },
+    },
+    generator: (block) => {
+      const message = `'${block.getFieldValue('NAME')}'` || '\'\'';
+      const code = `console.log('Hello ${message}')`;
+      return [code, Blockly.JavaScript.ORDER_MEMBER];
+    },
+  }
+
+
 
   
 
