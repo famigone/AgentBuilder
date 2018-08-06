@@ -127,59 +127,59 @@ class Bloques extends Component {
     >
    
 
-   <category name="Control" colour="%{BKY_LOGIC_HUE}">
+   <Category name="Control" colour="%{BKY_LOGIC_HUE}">
       
-        <block type="controls_if"></block>
-        <block type="controls_if">
+        <Block type="controls_if"></Block>
+        <Block type="controls_if">
           <mutation else="1"></mutation>
-        </block>
-        <block type="controls_if">
+        </Block>
+        <Block type="controls_if">
           <mutation elseif="1" else="1"></mutation>
-        </block>
-      </category>
+        </Block>
+      </Category>
       
-     <category name="Loops" colour="%{BKY_LOOPS_HUE}">
-      <block type="controls_repeat_ext">
+     <Category name="Loops" colour="%{BKY_LOOPS_HUE}">
+      <Block type="controls_repeat_ext">
         <value name="TIMES">
-          <block type="math_number">
+          <Block type="math_number">
             <field name="NUM">10</field>
-          </block>
+          </Block>
         </value>
-      </block>
-      <block type="controls_whileUntil"></block>
-      <block type="controls_for">
+      </Block>
+      <Block type="controls_whileUntil"></Block>
+      <Block type="controls_for">
         <field name="VAR">i</field>
         <value name="FROM">
-          <block type="math_number">
+          <Block type="math_number">
             <field name="NUM">1</field>
-          </block>
+          </Block>
         </value>
         <value name="TO">
-          <block type="math_number">
+          <Block type="math_number">
             <field name="NUM">10</field>
-          </block>
+          </Block>
         </value>
         <value name="BY">
-          <block type="math_number">
+          <Block type="math_number">
             <field name="NUM">1</field>
-          </block>
+          </Block>
         </value>
-      </block>
-      <block type="controls_forEach"></block>
-      <block type="controls_flow_statements"></block>
-    </category>
- <category name="Boolean" colour="%{BKY_LOGIC_HUE}">
-        <block type="logic_compare"></block>
-        <block type="logic_operation"></block>
-        <block type="logic_negate"></block>
-        <block type="logic_boolean"></block>
-        <block type="logic_null"></block>
-        <block type="logic_ternary"></block>
-      </category>
+      </Block>
+      <Block type="controls_forEach"></Block>
+      <Block type="controls_flow_statements"></Block>
+    </Category>
+ <Category name="Boolean" colour="%{BKY_LOGIC_HUE}">
+        <Block type="logic_compare"></Block>
+        <Block type="logic_operation"></Block>
+        <Block type="logic_negate"></Block>
+        <Block type="logic_boolean"></Block>
+        <Block type="logic_null"></Block>
+        <Block type="logic_ternary"></Block>
+      </Category>
 
 
- <category name="Variables" colour="330" custom="VARIABLE"></category>
-  <category name="Functions" colour="290" custom="PROCEDURE"></category>
+ <Category name="Variables" colour="330" custom="VARIABLE"></Category>
+  <Category name="Functions" colour="290" custom="PROCEDURE"></Category>
 
 
 
