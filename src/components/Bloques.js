@@ -112,8 +112,9 @@ class Bloques extends Component {
 
     <BlocklyDrawer
       tools={[INICIAR, MOVER, ATACAR]}
+      language = {Blockly.Javascript}
       onChange={(code, workspace) => {
-        console.log(code, workspace);
+        console.log(code);
       }}
       appearance={
         {
