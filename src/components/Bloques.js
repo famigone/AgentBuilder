@@ -1,8 +1,10 @@
 import React, { Component} from 'react';
 import ReactDOM from 'react-dom';
 import Blockly from 'node-blockly/browser'; 
+import  Codigo from './Codigo.js';
 
 import BlocklyDrawer, { Block, Category } from 'react-blockly-drawer';
+
 
 const INICIAR =  {
     name: 'INICIAR',
@@ -105,17 +107,51 @@ const MOVER =  {
 
 class Bloques extends Component {
 
- 
+   constructor(props) {
+    super(props);
+    this.state = {
+      code : "Esperando Instrucciones",
+      work: ""
+    }; 
+    this.handleCodex = this.handleCodex.bind(this);
+  }
+
+handleCodex(codex, workspace){
+  //console.log(this.state)
+  this.setState({ code: codex, work: workspace});
+
+}
+  
+shallowEqual(objA: mixed, objB: mixed) {
+  if (objA === objB) {
+    return true;
+  }
+  else return false;
+}
+
+shallowCompare(instance, nextProps, nextState) {
+  return (    
+    !this.shallowEqual(instance.state, nextState)
+  );
+}
+
+
+  shouldComponentUpdate(nextProps, nextState) {
+     return !(this.state.code == nextState.code)
+}
 
   render() {
     return(
-
+<div className="row">          
+  <div className="col-8">
+    
     <BlocklyDrawer
       tools={[INICIAR, MOVER, ATACAR]}
       language = {Blockly.Javascript}
       onChange={(code, workspace) => {
-        console.log(code);
+        this.handleCodex(code,workspace)
       }}
+      workspaceXML = {this.state.work}
       appearance={
         {
           categories: {
@@ -186,6 +222,12 @@ class Bloques extends Component {
 
 
     </BlocklyDrawer>
+</div> 
+    <div className="col-4">
+        <Codigo code={this.state.code}></Codigo>
+    </div> 
+    
+    </div> 
 )
 }
 }
